@@ -1,22 +1,21 @@
-VERNIER CALLIPER — CONTROL AND ZERO-ERROR UPDATE
+VERNIER CALLIPER — CONTROL AND SCALE FIXES
 
 Files in this ZIP:
 - index.html
 - script.js
-- verniercaliper.glb (the original 3D model)
+- verniercaliper.glb
 - README.md
 
-Updates:
-- Jaw View now frames the jaw end instead of zooming into the centre of the ruler.
-- Plus/minus zoom buttons use stronger steps and a wider zoom range.
-- Apply Zero Error now offsets the physical sliding carriage as well as updating the observed and corrected reading.
-- Resetting zero error returns the physical carriage to its zero-error position.
-- Added a dedicated Remove Object button in the Objects section; the existing jaw-control removal action remains available.
-- How It Works opens from the Learn tab and its accordion arrow can expand/collapse the panel.
-- Existing GLB model retained; the upper extra scale/black strip may still need a targeted mesh/material edit after checking the live 3D render, because the screenshot alone does not identify the exact GLB mesh safely.
+Changes in this build:
+- Added an explicit Apply Dimensions button for the selected object.
+- Expanded zero-error entry to −5.00 mm through +5.00 mm in 0.05 mm steps.
+- Added a numeric zero-error input as an alternative to the slider. Press Apply Zero Error to commit it.
+- Removing an object now closes the jaws automatically.
+- The generated scale texture now draws graduations on only one UV band; the other bands are plain steel to avoid duplicate scales. Removed the generated band border that could appear as a black line.
+- Jaw View frames the jaw end; zoom buttons use stronger increments.
 
 Install:
-Upload/replace index.html and script.js in the repository root, and keep verniercaliper.glb in the same folder. README.md is optional.
+Upload/replace index.html and script.js in the repository root, and keep verniercaliper.glb in that same folder. README.md is optional for the website.
 
-Checks:
-JavaScript syntax was checked with Node. A full browser/WebGL visual test was not available here, so please check the model on GitHub Pages after replacing the files.
+Validation:
+JavaScript syntax was checked with Node. A complete visual browser test was not available, so please verify the 3D appearance on GitHub Pages. The supplied GLB model itself is retained; only its generated scale texture and interactive controls are changed.
