@@ -17,5 +17,10 @@ Changes in this build:
 Install:
 Upload/replace index.html and script.js in the repository root, and keep verniercaliper.glb in that same folder. README.md is optional for the website.
 
+Mobile/WebGL recovery:
+- Reduced the renderer pixel ratio on mobile to lower GPU memory pressure.
+- Added WebGL context-loss/context-restoration handlers. When the browser restores the context, textures and materials are marked for upload again and the scene is redrawn.
+- Added a visibility-change redraw and viewport refresh when returning to the page after switching tabs/apps.
+
 Validation:
-JavaScript syntax was checked with Node. A complete visual browser test was not available, so please verify the 3D appearance on GitHub Pages. The supplied GLB model itself is retained; only its generated scale texture and interactive controls are changed.
+JavaScript syntax was checked with Node. A complete visual browser test was not available. The supplied GLB model itself is retained; only its generated scale texture, interactive controls, and WebGL recovery handling are changed.
