@@ -1,26 +1,21 @@
-VERNIER CALLIPER — CONTROL AND SCALE FIXES
+VERNIER CALLIPER — FIXED BUILD
 
-Files in this ZIP:
+Files:
 - index.html
 - script.js
-- verniercaliper.glb
-- README.md
+- verniercaliper.glb (original supplied 3D model)
 
-Changes in this build:
-- Added an explicit Apply Dimensions button for the selected object.
-- Expanded zero-error entry to −5.00 mm through +5.00 mm in 0.05 mm steps.
-- Added a numeric zero-error input as an alternative to the slider. Press Apply Zero Error to commit it.
-- Removing an object now closes the jaws automatically.
-- The generated scale texture now draws graduations on only one UV band; the other bands are plain steel to avoid duplicate scales. Removed the generated band border that could appear as a black line.
-- Jaw View frames the jaw end; zoom buttons use stronger increments.
+Fixes in this build:
+- Object-dimensions area remains visible after model initialization and after removing an object; choose a shape to enable its dimensions.
+- Zero-error slider widened to -5.00 mm through +5.00 mm in 0.05 mm steps.
+- Added an exact typed zero-error field accepting -20.00 mm through +20.00 mm.
+- Slider and typed zero error stay synchronized when within the slider range.
+- Removing an object closes the jaws while preserving the applied zero-error offset.
+- Replaced the three duplicate generated scale rows with one clean main-scale row to remove extra scale markings/strips.
+- Added mobile visibility/resizing and WebGL context-restoration handling to reduce the chance of a black viewer after switching tabs/apps.
 
 Install:
-Upload/replace index.html and script.js in the repository root, and keep verniercaliper.glb in that same folder. README.md is optional for the website.
+Replace index.html and script.js in the GitHub Pages repository root. Keep verniercaliper.glb beside index.html. README.md is informational.
 
-Mobile/WebGL recovery:
-- Reduced the renderer pixel ratio on mobile to lower GPU memory pressure.
-- Added WebGL context-loss/context-restoration handlers. When the browser restores the context, textures and materials are marked for upload again and the scene is redrawn.
-- Added a visibility-change redraw and viewport refresh when returning to the page after switching tabs/apps.
-
-Validation:
-JavaScript syntax was checked with Node. A complete visual browser test was not available. The supplied GLB model itself is retained; only its generated scale texture, interactive controls, and WebGL recovery handling are changed.
+Note:
+The physical GLB's exact top strip is part of the supplied model geometry/UV atlas. This build removes the extra generated scale rows; the precise GLB mesh strip may still need a model-level mesh edit if the original geometry itself shows a separate black strip.
