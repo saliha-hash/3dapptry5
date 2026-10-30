@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#050607"><title>Vernier Calliper | Precision Lab</title>
+<style>
+:root{color-scheme:dark;--bg:#050607;--panel:#090c0f;--panel2:#0d1115;--line:#20262c;--text:#f4f6f8;--muted:#98a1ab;--blue:#0878ff;--blue2:#005de8;--radius:12px}*{box-sizing:border-box}body{margin:0;background:#050607;color:var(--text);font:14px/1.4 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}button,input{font:inherit}button{color:inherit;cursor:pointer}button:focus-visible,input:focus-visible{outline:2px solid #1680ff;outline-offset:2px}[hidden]{display:none!important}.app{max-width:1900px;margin:auto;padding:14px 16px 18px}.masthead{height:60px;display:flex;align-items:center;padding:0 4px 12px}.masthead h1{font-size:clamp(26px,3vw,44px);font-weight:450;letter-spacing:-1.5px;margin:0}.masthead h1 span{color:#9da2a8}.eyebrow,.subtitle,.divider{display:none}.top-actions{margin-left:auto;display:flex;gap:9px}.icon-btn{width:42px;height:42px;border:1px solid #11161a;border-radius:12px;background:#090c0f;font-size:19px;color:#c4cbd2}.workspace{display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,416px);gap:14px;align-items:stretch}.left-column{min-width:0;display:flex;flex-direction:column;gap:14px}.stage{position:relative;min-height:590px;height:calc(100vh - 176px);max-height:1020px;overflow:hidden;border:1px solid #171c20;border-radius:10px;background:#020303;box-shadow:inset 0 0 0 1px #080a0b}#viewer{width:100%;height:100%;min-height:590px;touch-action:none}#viewer canvas{display:block;width:100%;height:100%}.stage-topline{position:absolute;top:14px;left:16px;z-index:2;display:flex;align-items:center;gap:8px;color:#aab3bd;font-size:11px;pointer-events:none}.live-dot{width:7px;height:7px;border-radius:50%;background:#39d98a;box-shadow:0 0 9px #39d98a55}.view-tools{position:absolute;bottom:16px;left:16px;z-index:4;display:flex;gap:0;overflow:hidden;border:1px solid #1b2229;border-radius:30px;background:#080b0edc;backdrop-filter:blur(10px)}.btn{min-height:38px;padding:9px 14px;border:1px solid #283039;border-radius:10px;background:#11171d;color:#e8edf2;font-size:12px;font-weight:500;transition:background .15s,border-color .15s}.btn:hover{background:#19232d;border-color:#46525f}.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}.btn.primary:hover{background:var(--blue2)}.view-tools .btn{border:0;border-radius:0;background:transparent;padding:10px 15px}.view-tools .btn:hover{background:#1b242d}.inset{position:absolute;right:18px;top:18px;width:min(330px,45%);z-index:5;border:1px solid #252b31;border-radius:12px;background:#080a0cf5;overflow:hidden;box-shadow:0 12px 32px #0008}.inset-head{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;color:#f0f2f4;font-size:12px}.close-inset{min-height:24px;padding:1px 8px;border:0;background:transparent}#scaleCanvas{display:block;width:100%;height:auto;background:#b7b7b4}.inset-caption{display:none}.sidebar{display:flex;flex-direction:column;gap:8px;min-width:0}.panel{background:linear-gradient(120deg,#0b0e11,#080b0e);border:1px solid #20262c;border-radius:12px;padding:13px 15px;min-width:0}.panel-heading{display:flex;align-items:center;gap:12px;margin:0 0 10px}.panel-heading h2{font-size:14px;font-weight:550;line-height:1.2;margin:0}.panel-heading h2:before{content:""}.tag{display:none}.subtext{color:var(--muted);font-size:11px;margin:0 0 10px}.panel-heading .subtext{margin:3px 0 0}.panel-heading h2{flex:1}.panel-heading:has(.tag){justify-content:space-between}.panel-heading:after{content:"⌄";color:#aab3bd;font-size:17px;order:3}.panel-heading h2{order:1}.panel-heading .tag{order:2}.control-row{display:flex;align-items:center;gap:14px}.range-wrap{flex:1;min-width:0}.range-labels{display:flex;justify-content:space-between;gap:8px;color:#929ba5;font-size:10px;margin-bottom:5px}input[type=range]{width:100%;accent-color:#1680ff;display:block;margin:4px 0 0;height:18px}.readout{min-width:92px;text-align:center;border:1px solid #283039;border-radius:9px;background:#090c0f;padding:8px 7px;font-size:12px}.object-actions{display:flex;gap:8px;margin-top:10px}.object-actions .btn{flex:1}.shape-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.shape-btn{height:66px;border:1px solid #202830;border-radius:7px;background:linear-gradient(145deg,#13191f,#0b0f13);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:11px;color:#e9edf1}.shape-btn:before{font-size:24px;line-height:1;color:#d5dbe1}.shape-btn[data-shape=sphere]:before{content:"●";color:#1388f5;text-shadow:0 1px 7px #0878ff}.shape-btn[data-shape=cube]:before{content:"⬡"}.shape-btn[data-shape=cylinder]:before{content:"▤"}.shape-btn[data-shape=cuboid]:before{content:"▰"}.shape-btn[data-shape=cone]:before{content:"△"}.shape-btn[data-shape=slab]:before{content:"▰";color:#ed1c24;text-shadow:0 1px 7px #ed1c24}.shape-btn[data-shape=wire]:before{content:"／"}.shape-btn.active{border-color:#0878ff;box-shadow:inset 0 2px #0878ff,0 0 0 1px #0878ff44;background:#0d1a28}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 12px}.fields label{display:block;font-size:10px;color:#e0e5e9;margin:0 0 3px}.fields input{width:100%;height:29px;background:#090c0f;border:1px solid #202830;border-radius:7px;color:#f5f7f9;padding:5px 9px;font-size:12px}.result-summary{margin-top:8px;padding:9px 0 0;border-top:1px solid #1a2026}.result-label{font-size:10px;color:#9ca5af}.result-value{font-size:27px;font-weight:450;letter-spacing:-.6px;margin:2px 0}.result-value small{font-size:12px;letter-spacing:0}.result-detail{font-size:10px;color:#a5adb6}.calc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.calc-item{border:1px solid #202830;border-radius:7px;padding:8px;background:#080b0e}.calc-item span{display:block;color:#9ba5af;font-size:10px}.calc-item strong{font-size:13px;font-weight:550;display:block;margin-top:4px}.zero-layout{display:flex;align-items:center;gap:12px}.zero-layout .range-wrap{flex:1}.zero-value{min-width:90px;text-align:center;border:1px solid #283039;border-radius:8px;padding:8px}.zero-value strong{font-size:12px;display:block}.zero-value span{display:none}#status{font-size:10px;color:#8e9aa5;margin-top:8px;min-height:12px}#status[data-kind=error]{color:#ff7777}.span-all{grid-column:1/-1}.work-grid{display:contents}.footer{display:none}.bottom-nav{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid #1c2228;border-radius:10px;background:#080b0e;min-height:86px}.bottom-nav button{background:transparent;border:0;color:#a7afb8;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:12px}.bottom-nav button span{font-size:21px}.bottom-nav .nav-icon{display:grid;place-items:center;width:26px;height:26px}.bottom-nav .nav-icon svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.bottom-nav button.active{color:#fff;position:relative}.bottom-nav button.active:after{content:"";position:absolute;bottom:12px;width:36px;height:2px;background:#0878ff}.bottom-nav button:hover{background:#0d1217}.mobile-help{display:none}
+@media(max-width:1100px){.workspace{grid-template-columns:minmax(0,1fr) 340px}.stage{height:calc(100vh - 170px);min-height:540px}#viewer{min-height:540px}.app{padding:10px}.panel{padding:11px}.shape-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:800px){.app{padding:8px}.masthead{height:53px;padding:0 2px 8px}.masthead h1{font-size:29px}.icon-btn{width:36px;height:36px}.workspace{grid-template-columns:1fr;gap:10px}.stage{height:55vh;min-height:360px;max-height:620px}#viewer{min-height:360px}.sidebar{display:grid;grid-template-columns:1fr;gap:8px}.panel{padding:12px}.shape-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.shape-btn{height:61px}.inset{width:min(290px,65%);right:8px;top:8px}.view-tools{left:8px;bottom:8px}.view-tools .btn{padding:9px 11px}.bottom-nav{min-height:70px}.bottom-nav button.active:after{bottom:7px}}
+@media(max-width:400px){.masthead h1{font-size:25px}.top-actions{gap:4px}.icon-btn{width:32px;height:32px}.shape-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}.shape-btn{font-size:10px}.control-row{gap:8px}.readout{min-width:80px}.panel-heading h2{font-size:13px}}
+
+/* Precision redesign: pure black stage, generous spacing, readable controls */
+:root{--bg:#000000;--panel:#050505;--panel2:#070707;--line:#242424;--text:#f5f5f5;--muted:#b7b7b7;--blue:#087cff;--blue2:#0068ed;--radius:14px}
+html,body{background:#000!important}
+.app{max-width:2000px;padding:18px 22px 22px}
+.masthead{height:62px;padding:0 8px 12px}
+.masthead h1{font-size:clamp(30px,3vw,44px);font-weight:500;letter-spacing:-1.2px;color:#f7f7f7}
+.masthead h1 span{color:#a7a7a7}
+.workspace{grid-template-columns:minmax(0,1fr) minmax(360px,430px);gap:22px}
+.left-column{gap:18px}
+.stage{height:calc(100vh - 170px);min-height:600px;max-height:1100px;border:0;border-radius:0;background:#000;box-shadow:none;overflow:hidden}
+.panel-toggle[aria-expanded='true']{border-color:#087cff;box-shadow:inset 3px 0 #087cff}
+#zeroApplyStatus{margin:9px 0 0;font-size:12px}
+#applyZeroButton{flex:1.5}
+#viewer{min-height:600px;background:#000}
+#viewer canvas{outline:0}
+.sidebar{gap:14px}
+.panel{background:#050505;border:1px solid #282828;border-radius:14px;padding:18px 19px;margin:0}
+.panel-heading{gap:10px;margin:0 0 15px}
+.panel-heading h2{font-size:17px;font-weight:600;line-height:1.3}
+.subtext{font-size:13px;line-height:1.4;color:#bdbdbd;margin:4px 0 12px}
+.panel-heading .subtext{font-size:13px}
+.btn{min-height:44px;padding:11px 16px;border:1px solid #303030;border-radius:10px;background:#090909;font-size:14px;font-weight:550}
+.btn:hover{background:#101010;border-color:#505050}
+.btn:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #1680ff;outline-offset:3px}
+.btn.primary{background:#087cff;border-color:#087cff;color:#fff}
+.btn.primary:hover{background:#0068ed}
+.btn.active,.object-actions .btn:focus,.view-tools .btn:focus{background:#071d36;border-color:#087cff;box-shadow:0 0 0 1px #087cff,0 0 16px #087cff33}
+.control-row{gap:16px}
+.range-labels{font-size:12px;color:#aaa;margin-bottom:8px}
+input[type=range]{accent-color:#1680ff;height:22px;cursor:pointer}
+.readout{min-width:104px;border:1px solid #303030;border-radius:10px;background:#000;padding:10px 9px;font-size:14px}
+.object-actions{gap:10px;margin-top:14px}
+.shape-grid{gap:10px}
+.shape-btn{height:76px;border:1px solid #292929;border-radius:10px;background:#080808;gap:7px;font-size:14px;color:#f0f0f0}
+.shape-btn:before{font-size:26px}
+.shape-btn:hover{border-color:#555;background:#0b0b0b}
+.shape-btn.active{border-color:#087cff;box-shadow:inset 0 0 0 1px #087cff,0 0 18px #087cff25;background:#06182b}
+.fields{gap:12px 14px}
+.fields label{font-size:13px;color:#ddd;margin-bottom:6px}
+.fields input{height:40px;background:#000;border:1px solid #303030;border-radius:9px;padding:8px 11px;font-size:15px}
+.result-summary{margin-top:12px;padding:12px 0 0;border-top:1px solid #242424}
+.result-label,.result-detail{font-size:13px;color:#b8b8b8;line-height:1.5}
+.result-value{font-size:36px;font-weight:500;letter-spacing:-.8px;margin:4px 0}
+.result-value small{font-size:16px}
+.calc-grid{gap:9px}
+.calc-item{border:1px solid #282828;border-radius:9px;padding:11px;background:#000}
+.calc-item span{font-size:12px;color:#b8b8b8;line-height:1.4}
+.calc-item strong{font-size:15px;font-weight:600;margin-top:5px}
+.zero-layout{gap:14px}
+.zero-value{min-width:102px;border:1px solid #303030;border-radius:10px;padding:10px;background:#000}
+.zero-value strong{font-size:14px}
+#status,.stage-topline,.top-actions{display:none!important}
+.inset{right:22px;top:22px;width:min(350px,45%);border:1px solid #303030;border-radius:12px;background:#050505;box-shadow:0 12px 36px #000}
+.inset-head{font-size:14px;padding:10px 14px}
+.view-tools{left:18px;bottom:18px;border:1px solid #303030;border-radius:12px;background:#050505;backdrop-filter:none;gap:4px;padding:4px}
+.view-tools .btn{border-radius:8px;padding:10px 13px;font-size:13px}
+.bottom-nav{min-height:84px;border:1px solid #282828;border-radius:12px;background:#050505;overflow:hidden}
+.bottom-nav button{font-size:14px;gap:5px}
+.bottom-nav button span{font-size:23px}.bottom-nav .nav-icon{display:grid;place-items:center;width:26px;height:26px}.bottom-nav .nav-icon svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.bottom-nav button.active{color:#fff;background:#06182b}
+.bottom-nav button.active:after{bottom:8px;width:44px;height:3px;border-radius:3px}
+@media(max-width:1100px){.app{padding:12px}.workspace{grid-template-columns:minmax(0,1fr) 350px;gap:14px}.panel{padding:14px}.stage{min-height:540px;height:calc(100vh - 160px)}#viewer{min-height:540px}}
+@media(max-width:800px){.app{padding:8px 10px 14px}.masthead{height:55px;padding:0 2px 8px}.masthead h1{font-size:30px}.workspace{grid-template-columns:1fr;gap:12px}.stage{height:53vh;min-height:390px;max-height:650px}#viewer{min-height:390px}.sidebar{display:flex;gap:12px}.panel{padding:15px 16px}.shape-grid{gap:8px}.shape-btn{height:68px;font-size:13px}.inset{right:8px;top:8px;width:min(300px,70%)}.view-tools{left:8px;bottom:8px}.view-tools .btn{padding:9px 11px}.bottom-nav{min-height:72px}.bottom-nav button{font-size:12px}.bottom-nav button.active:after{bottom:5px}}
+@media(max-width:400px){.masthead h1{font-size:27px}.panel-heading h2{font-size:16px}.panel{padding:13px}.shape-grid{gap:6px}.shape-btn{font-size:12px}.control-row{gap:8px}.readout{min-width:90px}.calc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Final visibility and control-size pass */
+.stage{background:#000;border:0!important;border-radius:0!important;box-shadow:none!important;overflow:hidden}
+#viewer{background:#000}
+.view-tools{gap:6px;padding:5px;border-radius:14px;border-color:#303030;background:#030303}
+.view-tools .btn{min-height:48px;min-width:58px;padding:12px 18px;font-size:14px;border-radius:9px}
+.view-tools #fitButton{min-width:132px;font-size:14px}
+.btn.primary,.shape-btn.active,.bottom-nav button.active{box-shadow:0 0 0 1px #087cff inset,0 0 18px #087cff2b}
+.shape-btn{min-height:78px;padding:10px 8px}
+.panel{padding:19px 20px}
+.panel-heading h2{font-size:18px}
+.subtext,.fields label,.result-label,.result-detail,.calc-item span{font-size:14px}
+.fields input{height:43px;font-size:16px}
+@media(max-width:800px){.view-tools .btn{min-height:46px;min-width:50px;padding:11px 14px}.view-tools #fitButton{min-width:118px}.panel{padding:16px}.shape-btn{min-height:70px}}
+@media(max-width:400px){.view-tools .btn{min-width:43px;padding:10px}.view-tools #fitButton{min-width:108px}.panel-heading h2{font-size:17px}}
+
+/* Professional finishing pass: controls below the instrument, no mirrored duplicate. */
+.view-tools{position:static;inset:auto;align-self:flex-start;display:flex;gap:8px;overflow:visible;margin:0 0 0 4px;padding:0;border:0;border-radius:0;background:transparent;backdrop-filter:none;z-index:auto}
+.view-tools .btn{min-height:48px;min-width:68px;padding:12px 20px;border:1px solid #252a30;border-radius:10px;background:#050505;color:#e8edf2;font-size:14px}
+.view-tools #fitButton{min-width:150px}
+.view-tools .btn:hover{border-color:#087cff;background:#061323}
+.view-tools .btn:active,.view-tools .btn:focus-visible{border-color:#087cff;background:#061a31;box-shadow:0 0 0 1px #087cff,0 0 16px #087cff38}
+.stage{border:0!important;border-radius:0!important;box-shadow:none!important;background:#000!important}
+#viewer{background:#000!important}
+/* Compact accordion rows keep optional information out of the way until requested. */
+.panel-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;gap:14px;text-align:left;background:#050505;border:1px solid #242a30;border-radius:10px;color:#f2f4f7;padding:14px 15px;font-size:17px;font-weight:600;min-height:54px}
+.panel-toggle .toggle-title{display:flex;align-items:center;gap:11px}
+.panel-toggle .toggle-chevron{font-size:20px;color:#aeb7c0;transition:transform .18s}
+.panel-toggle[aria-expanded="true"] .toggle-chevron{transform:rotate(180deg)}
+.panel-toggle:hover{border-color:#3d4954}
+.panel-toggle[aria-expanded="true"]{border-color:#087cff;box-shadow:0 0 0 1px #087cff inset,0 0 16px #087cff1c}
+.panel-body{padding-top:16px}
+.panel.collapsible{padding:10px;background:#030303;border-color:#1e242a}
+.panel.collapsible .panel-heading{display:none}
+.panel.collapsible .panel-body[hidden]{display:none!important}
+.shape-btn{background:#030303;border-color:#262c32;border-radius:10px}
+.shape-btn:hover{border-color:#087cff;background:#06101b}
+.shape-btn.active{border-color:#087cff;background:#06172a;box-shadow:inset 0 0 0 1px #087cff,0 0 18px #087cff26}
+.btn,.shape-btn,.bottom-nav button{transition:background .16s,border-color .16s,box-shadow .16s,color .16s}
+.bottom-nav button.active{background:#06172a;color:#fff;box-shadow:inset 0 -3px #087cff}
+.bottom-nav button.active:after{display:none}
+/* Metallic steel is silver-grey, not blown-out white. */
+@media(max-width:800px){.view-tools{width:100%;margin:0;gap:7px}.view-tools .btn{flex:1;min-width:0;padding:11px 10px}.view-tools #fitButton{min-width:0;flex:1.35}.panel-toggle{font-size:16px;min-height:52px}.panel-body{padding-top:13px}}
+
+
+/* Final pass: black studio stage, neutral steel-friendly UI, roomy view toolbar. */
+body,.app,.stage,#viewer{background:#000!important}
+.panel{background:#050505!important;border-color:#242424!important}
+.view-tools{position:static;display:flex;flex-wrap:wrap;gap:8px;overflow:visible;margin:0;padding:0;border:0;border-radius:0;background:transparent;backdrop-filter:none}
+.view-tools .btn{min-height:48px;min-width:76px;padding:12px 19px;border:1px solid #292929;border-radius:9px;background:#050505;font-size:14px}
+.view-tools .btn:hover,.view-tools .btn:focus-visible{background:#061a31;border-color:#087cff;box-shadow:0 0 0 1px #087cff,0 0 15px #087cff35}
+#viewer{min-height:590px}
+@media(max-width:800px){.view-tools{display:grid;grid-template-columns:1.25fr 1.2fr .7fr .7fr 1fr;width:100%;gap:6px}.view-tools .btn{min-width:0;padding:10px 5px;font-size:13px;min-height:46px}.stage{min-height:380px;height:52vh}#viewer{min-height:380px}}
+.zero-type{margin-top:14px}.zero-type label{display:block;font-size:14px;color:#ddd;margin:0 0 6px}.zero-type input{width:100%;height:43px;background:#000;border:1px solid #303030;border-radius:9px;color:#f5f7f9;padding:8px 11px;font-size:16px}
+#applyZeroButton,#applyZeroButton.primary{background:#090909;border-color:#303030;color:#e8edf2;box-shadow:none}#applyZeroButton:hover{background:#101010;border-color:#505050}
+</style></head><body><main class="app">
+<header class="masthead"><h1>Vernier <span>Calliper</span></h1></header>
+<div class="workspace"><div class="left-column"><section class="stage" aria-label="3D Vernier calliper"><div id="viewer" aria-label="Interactive 3D Vernier calliper. Drag to rotate and pinch to zoom."></div><div class="inset" id="scaleInset" hidden><div class="inset-head"><span>⌕ &nbsp; Vernier View</span><button class="btn close-inset" id="closeInsetButton" aria-label="Close zoom">×</button></div><canvas id="scaleCanvas" width="760" height="300"></canvas><p class="inset-caption">Magnified scale view</p></div></section><div class="view-tools" aria-label="3D view controls"><button class="btn" id="fitButton" type="button" title="Show the whole calliper">3D View</button><button class="btn" id="jawsButton" type="button" title="View the jaws without hiding the scale">Jaw View</button><button class="btn" id="zoomInButton" type="button" title="Zoom in" aria-label="Zoom in">＋</button><button class="btn" id="zoomOutButton" type="button" title="Zoom out" aria-label="Zoom out">−</button><button class="btn" id="scaleButton" type="button" title="Show or hide the enlarged scale" aria-label="Toggle enlarged scale">Scale</button></div><nav class="bottom-nav"><button class="active" data-tab="measure"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg></span>Measure</button><button data-tab="practice"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4H5v16h14V4h-3"/><path d="M9 3h6v4H9zM8 12h8M8 16h5"/></svg></span>Practice</button><button data-tab="learn"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22z"/><path d="M4 5.5V22M8 7h8M8 11h8"/></svg></span>Learn</button><button data-tab="settings"><span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1 1.1 1.9-1.8 3.1-2.2-.5a7.8 7.8 0 0 1-1.7 1l-.4 2.2h-3.6l-.4-2.2a7.8 7.8 0 0 1-1.7-1l-2.2.5-1.8-3.1 1.1-1.9A7.4 7.4 0 0 1 5.8 12c0-.6.1-1.2.3-1.8L5 8.3l1.8-3.1 2.2.5a7.8 7.8 0 0 1 1.7-1l.4-2.2h3.6l.4 2.2a7.8 7.8 0 0 1 1.7 1l2.2-.5 1.8 3.1-1.1 1.9c.2.6.3 1.2.3 1.8s-.1 1.2-.3 1.8z" transform="translate(-1 -1) scale(.95)"/></svg></span>Settings</button></nav></div>
+<aside class="sidebar"><section class="panel" id="jawPanel"><div class="panel-heading"><h2>↔ &nbsp; Jaw Control <div class="subtext">Move the sliding jaw manually</div></h2></div><div class="control-row"><div class="range-wrap"><input id="jawSlider" type="range" min="0" max="100" value="0" step="0.05" aria-label="Jaw opening"><div class="range-labels"><span>0 mm</span><span>100 mm</span></div></div><output class="readout" id="jawValue">0.00 mm</output></div><div class="object-actions"><button class="btn" id="closeJawsButton">Close Jaws</button><button class="btn" id="removeButton" disabled>Remove Object</button></div><div id="status" role="status" aria-live="polite">Loading model…</div></section>
+<section class="panel"><div class="panel-heading"><h2>⬡ &nbsp; Objects <div class="subtext">Choose an object to measure</div></h2></div><div class="shape-grid" id="shapeButtons"><button class="shape-btn" data-shape="sphere" type="button">Sphere</button><button class="shape-btn" data-shape="cube" type="button">Cube</button><button class="shape-btn" data-shape="cylinder" type="button">Cylinder</button><button class="shape-btn" data-shape="cuboid" type="button">Cuboid</button><button class="shape-btn" data-shape="cone" type="button">Cone</button><button class="shape-btn" data-shape="slab" type="button">Slab</button><button class="shape-btn" data-shape="wire" type="button">Wire</button></div><div class="object-actions"><button class="btn" id="removeObjectButton" type="button" disabled>Remove Object</button></div></section>
+<section class="panel"><div class="panel-heading"><h2>▱ &nbsp; Object Dimensions <div class="subtext">Enter the size of the object</div></h2></div><div id="objectPanel"><p class="subtext" id="objectHint">No object selected yet. Choose Sphere, Cube, Cylinder, Cuboid, Cone, Slab or Wire in the Objects section above, then enter its size here.</p><div id="objectFields" hidden><div class="fields"><div id="fieldA"><label id="labelA" for="dimA">Diameter (mm)</label><input id="dimA" type="number" min="1" max="100" step="0.05" value="20"></div><div id="fieldB"><label id="labelB" for="dimB">Height (mm)</label><input id="dimB" type="number" min="1" max="100" step="any" value="20"></div><div id="fieldC"><label id="labelC" for="dimC">Length (mm)</label><input id="dimC" type="number" min="1" max="100" step="any" value="20"></div></div><div class="result-summary"><div class="result-label">Object setup</div><div class="result-detail" id="objectDimensionsSummary">Choose an object to begin.</div><div id="measurementAnswer" hidden>20.00 mm</div></div></div></div></section>
+<section class="panel"><div class="panel-heading"><h2>⊙ &nbsp; Measurement Result <div class="subtext">Measured reading</div></h2></div><div class="result-value" id="finalReading">0.00 <small>mm</small></div><div class="result-detail">Least Count: 0.05 mm</div><div class="calc-grid" style="margin-top:10px"><div class="calc-item"><span>Main scale reading</span><strong id="msrValue">0 mm</strong></div><div class="calc-item"><span>Vernier division</span><strong id="vcValue">0</strong></div><div class="calc-item"><span>Vernier contribution</span><strong id="vernierContribution">0.00 mm</strong></div><div class="calc-item"><span>Observed reading</span><strong id="observedValue">0.00 mm</strong></div><div class="calc-item"><span>Zero error</span><strong id="zeroErrorCalc">0.00 mm</strong></div><div class="calc-item"><span>Zero correction</span><strong id="zeroCorrection">0.00 mm</strong></div></div><p class="subtext" id="roundingNote">Select an object to calculate a reading.</p></section>
+<section class="panel" id="zeroPanel"><div class="panel-heading"><h2>⊙ &nbsp; Zero Error <div class="subtext">Adjust the zero error for practice</div></h2></div><div class="zero-layout"><div class="range-wrap"><div class="range-labels"><span>−5.00 mm</span><span>0.00 mm</span><span>+5.00 mm</span></div><input id="zeroSlider" type="range" min="-5" max="5" step="0.05" value="0" aria-label="Zero error slider"></div><div class="zero-value"><strong id="zeroValue">0.00 mm</strong><span>zero error</span></div></div><div class="zero-type"><label for="zeroInput">Or type the zero error you want (−5 to +5 mm)</label><input id="zeroInput" type="number" min="-5" max="5" step="0.05" value="0.00" inputmode="decimal" aria-label="Type zero error in millimetres"></div><div class="object-actions"><button class="btn" id="applyZeroButton" type="button">Apply Zero Error</button><button class="btn" id="zeroResetButton" type="button">Reset</button></div><p class="subtext" id="zeroApplyStatus" aria-live="polite">Adjust the value, then tap Apply Zero Error.</p></section>
+<section class="panel" id="helpPanel" hidden><div class="panel-heading"><h2>▤ &nbsp; How It Works</h2></div><p class="subtext">Least count = 0.05 mm. Observed reading = main scale reading + (coinciding vernier division × 0.05 mm). Corrected reading = observed reading − zero error. Apply Zero Error to shift the main-scale zero against the vernier zero on the 3D calliper and update the reading (type a value or use the slider). Drag the instrument to rotate it; Jaw View focuses on the jaws.</p></section></aside></div></main>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.184.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.184.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module" src="./script.js"></script><script>document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x===b));if(b.dataset.tab==='learn'){const p=document.getElementById('helpPanel');p.hidden=false;const body=p.querySelector('.panel-body');const toggle=p.querySelector('.panel-toggle');if(body){body.hidden=false;toggle?.setAttribute('aria-expanded','true')}p.scrollIntoView({behavior:'smooth',block:'nearest'})}else if(b.dataset.tab==='settings'){document.getElementById('zeroPanel').scrollIntoView({behavior:'smooth',block:'center'})}else if(b.dataset.tab==='practice'){document.getElementById('zeroPanel').scrollIntoView({behavior:'smooth',block:'center'})}}));
+function makeCollapsible(panel, title, icon, initiallyOpen=false){
+ if(!panel || panel.dataset.collapsibleReady) return;
+ panel.dataset.collapsibleReady='true'; panel.classList.add('collapsible');
+ const oldHeading=panel.querySelector('.panel-heading');
+ if(oldHeading) oldHeading.remove();
+ const toggle=document.createElement('button'); toggle.type='button'; toggle.className='panel-toggle'; toggle.setAttribute('aria-expanded',String(initiallyOpen));
+ toggle.innerHTML='<span class="toggle-title"><span aria-hidden="true">'+icon+'</span><span>'+title+'</span></span><span class="toggle-chevron" aria-hidden="true">⌄</span>';
+ const body=document.createElement('div'); body.className='panel-body';
+ while(panel.firstChild) body.appendChild(panel.firstChild);
+ panel.append(toggle,body); body.hidden=!initiallyOpen;
+ toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(open));body.hidden=!open;});
+}
+makeCollapsible(document.getElementById('jawPanel'),'Jaw control','↔',false);
+makeCollapsible(document.getElementById('zeroPanel'),'Zero error','⊙',false);
+makeCollapsible(document.getElementById('objectPanel')?.closest('.panel'),'Object dimensions','↔',false);
+makeCollapsible(document.getElementById('finalReading')?.closest('.panel'),'Measurement result','◎',false);
+makeCollapsible(document.getElementById('helpPanel'),'How it works','▤',false);
+</script></body></html>
